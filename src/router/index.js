@@ -109,8 +109,22 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
+/**  异步路由，需要匹配权限 **/
 export const asyncRouterMap = [
+  
+  {
+    path: '/userList',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/userList/index'),
+        name: 'UserList',
+        meta: { title: 'userList', icon: 'user' }
+      }
+    ]
+   },
+
   {
     path: '/permission',
     component: Layout,
