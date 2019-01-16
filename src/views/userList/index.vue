@@ -10,7 +10,7 @@
       <el-table-column fixed="right" label="操作" width>
         <template slot-scope="scope">
           <el-button type="text" size="small">查看</el-button>
-          <el-button type="text" size="small" @click="dialogTableVisible = true">编辑</el-button>
+          <el-button type="text" size="small" @click="dialogTableVisible = true;show(scope.$index)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -114,6 +114,9 @@ export default {
           console.log(res.data.data);
           this.tableData = res.data.data.list;
         });
+    },
+    show(e){
+      console.log(e.currentTarget.parentElement);
     }
   }
 };
