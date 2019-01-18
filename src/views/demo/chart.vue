@@ -2,6 +2,11 @@
   <div>
     <!-- 折现图 -->
     <ve-line :data="chartData1"/>
+    <ve-line :data="commites"/>
+
+    <!-- <ve-line :data="commites"/>
+    <ve-line :data="commites"/> -->
+
     <!-- 柱状图 -->
     <ve-histogram :data="chartData2"/>
     <!-- 条形图 -->
@@ -12,12 +17,15 @@
 </template>
 <script>
 import axios from 'axios'
-import VeLine from 'v-charts/lib/line.common'
 export default {
   name: 'Chart',
-  components: { VeLine },
   data() {
     return {
+      commites: {
+        columns: ['date', 'commit'],
+        rows: []
+      },
+
       Line: { columns: ['date', 'commit'] },
       Histogram: { columns: ['date', 'commit'] },
       Bar: { columns: ['date', 'commit'] },
@@ -69,12 +77,23 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     axios.get('http://123.206.55.50:15000/users/commit').then(res => {
-      this.Line.rows = res.data[0].commit
-      this.Histogram.rows = res.data[1].commit
-      this.Bar.rows = res.data[2].commit
-      this.Pie.rows = res.data[3].commit
+      res.data.map(val => {
+        const a = val.commit.map((value, ind) => {
+          // console.log('value...',value,'length...',ind)
+          this.commites.rows.push(value)
+          return value
+        })
+        console.log(a)
+        // console.log(this.commites);
+      })
+    //   console.log(this.commites);
+
+      //   this.Line.rows = res.data[0].commit;
+      //   this.Histogram.rows = res.data[1].commit;
+      //   this.Bar.rows = res.data[2].commit;
+      //   this.Pie.rows = res.data[3].commit;
     })
   }
 }

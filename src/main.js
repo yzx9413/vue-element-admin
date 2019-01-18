@@ -13,7 +13,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import VCharts from 'v-charts'
+import VCharts from 'v-charts'// vue-charts
 
 import i18n from './lang' // Internationalization
 import './icons' // icon
@@ -23,7 +23,7 @@ import './mock' // simulation data
 
 import * as filters from './filters' // global filters
 
-Vue.use(VCharts)
+Vue.use(VCharts)// set vue-charts
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
