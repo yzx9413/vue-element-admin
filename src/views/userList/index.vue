@@ -2,7 +2,7 @@
   <div>
     <!-- 表格 -->
     <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="username" label="用户名"></el-table-column>
+      <el-table-column prop="username" label="username"></el-table-column>
       <el-table-column prop="profile" label="职位"></el-table-column>
       <el-table-column prop="create_time" label="创建时间"></el-table-column>
       <el-table-column prop="email" label="邮箱"></el-table-column>
@@ -10,7 +10,11 @@
       <el-table-column fixed="right" label="操作" width>
         <template slot-scope="scope">
           <el-button type="text" size="small">查看</el-button>
-          <el-button type="text" size="small" @click="dialogTableVisible = true;show(scope.$index)">编辑</el-button>
+          <el-button
+            type="text"
+            size="small"
+            @click="dialogTableVisible = true;show(scope.$index)"
+          >编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -115,7 +119,7 @@ export default {
           this.tableData = res.data.data.list;
         });
     },
-    show(e){
+    show(e) {
       console.log(e.currentTarget.parentElement);
     }
   }

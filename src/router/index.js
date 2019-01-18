@@ -111,7 +111,7 @@ export default new Router({
 })
 /**  异步路由，需要匹配权限 **/
 export const asyncRouterMap = [
-  
+
   {
     path: '/userList',
     component: Layout,
@@ -123,7 +123,20 @@ export const asyncRouterMap = [
         meta: { title: 'UserList', icon: 'peoples' }
       }
     ]
-   },
+  },
+
+  {
+    path: '/demo',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/demo/index'),
+        name: 'demo',
+        meta: { title: 'Demo', icon: 'lock' }
+      }
+    ]
+  },
 
   {
     path: '/permission',

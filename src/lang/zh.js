@@ -159,6 +159,6 @@ export default {
     closeAll: '关闭所有'
   },
    userList:{
-    username: '用户名称',
+    username: '用户名',
   }
 }
