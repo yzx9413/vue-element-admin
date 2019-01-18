@@ -63,7 +63,8 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
     externalLink: '外链',
-    UserList:'用户列表'
+    UserList: '用户列表',
+    Demo: '实验页面'
   },
   navbar: {
     logOut: '退出登录',
@@ -158,7 +159,11 @@ export default {
     closeOthers: '关闭其它',
     closeAll: '关闭所有'
   },
-   userList:{
-    username: '用户名',
+  userList: {
+    username: '用户名'
+  },
+  demo: {
+    Chart: '数据页面',
+    Classification: '分级页面'
   }
 }

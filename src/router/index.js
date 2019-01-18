@@ -128,12 +128,21 @@ export const asyncRouterMap = [
   {
     path: '/demo',
     component: Layout,
+    meta: {
+      title: 'Demo',
+      icon: 'lock'
+    },
     children: [
       {
-        path: 'index',
+        path: '/classification',
         component: () => import('@/views/demo/index'),
-        name: 'demo',
-        meta: { title: 'Demo', icon: 'lock' }
+        name: 'classification',
+        meta: { title: 'Classification', icon: 'form' }
+      }, {
+        path: '/chart',
+        component: () => import('@/views/demo/chart'),
+        name: 'chart',
+        meta: { title: 'Chart', icon: 'chart' }
       }
     ]
   },
